@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
 # Import your scaler, model, and classes from capstoneScript
-from capstoneScript import scaler, best_model, classes
+from capstoneScript import scaler, best_model, classes, accuracy
 
 # Initialize the FastAPI app
 app = FastAPI()
@@ -46,9 +46,10 @@ def predict_cancer(data: CancerData):
         # Make a prediction
         prediction = best_model.predict(sample) 
         result = classes[prediction[0]]
+        score = round(accuracy * 100, 2)
 
         # Return the prediction result
-        return {"prediction": result}
+        return {"prediction": result, "accuracy": score}
 
     except Exception as e:
         # Handle any errors during prediction
@@ -92,4 +93,4 @@ def tester_boi():
     How did they know bout the ins and outs?
     Somebody must have told them
     """
-    return {"song": song.strip()}
+    return {"song": song}
