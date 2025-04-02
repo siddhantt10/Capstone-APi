@@ -14,9 +14,8 @@ app = FastAPI()
 
 # Add CORS middleware
 origins = [
-    "http://localhost:3000",  # Frontend in development
-    "http://127.0.0.1:3000",  # Alternative local frontend URL
-    "https://your-production-domain.com",  # Replace with your production domain
+    # "http://localhost:3000",  # Alternative local frontend URL
+    "https://breast-cancer-detection-app.vercel.app",  # Replace with your production domain
 ]
 
 app.add_middleware(
